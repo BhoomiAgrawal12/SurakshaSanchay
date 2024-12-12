@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -7,26 +8,50 @@ import iconUrl from "leaflet/dist/images/marker-icon.png";
 import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 import { Feature, Geometry } from "geojson";
 
-// GeoJSON and police stations data...
-
-let categories = [
-  { name: "COMMUNICATION_DEVICES", quantity: 15 },
-  { name: "COMPUTER_AND_IT_EQUIPMENT", quantity: 8 },
-  { name: "NETWORKING_EQUIPMENT", quantity: 12 },
-  { name: "SURVEILLANCE_AND_TRACKING", quantity: 5 },
-  { name: "VEHICLE_AND_ACCESSORIES", quantity: 20 },
-  { name: "PROTECTIVE_GEAR", quantity: 7 },
-  { name: "FIREARMS", quantity: 3 },
-  { name: "FORENSIC", quantity: 11 },
-  { name: "MEDICAL_FIRST_AID", quantity: 9 },
-  { name: "OFFICE_SUPPLIES", quantity: 25 },
-];
-
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: iconRetinaUrl.src,
   iconUrl: iconUrl.src,
   shadowUrl: shadowUrl.src,
 });
+
+const policeStations = [
+  { name: "TT Nagar Police Station", lat: 23.23725, long: 77.39984 },
+  { name: "Kamla Nagar Police Station", lat: 23.21554, long: 77.39552 },
+  { name: "Shyamla Hills Police Station", lat: 23.2457, long: 77.4107 },
+  { name: "Habibganj Police Station", lat: 23.2295, long: 77.4381 },
+  { name: "Piplani Police Station", lat: 23.2289, long: 77.4718 },
+  { name: "Govindpura Police Station", lat: 23.2587, long: 77.4935 },
+  { name: "Ashoka Garden Police Station", lat: 23.2494, long: 77.4631 },
+  { name: "MP Nagar Police Station", lat: 23.2332, long: 77.4272 },
+  { name: "Bhopal Kotwali Police Station", lat: 23.2689, long: 77.4012 },
+  { name: "Hanumanganj Police Station", lat: 23.2812, long: 77.4135 },
+  { name: "Chhola Mandir Police Station", lat: 23.2856, long: 77.4343 },
+  { name: "Shahpura Police Station", lat: 23.1945, long: 77.4423 },
+  { name: "Misrod Police Station", lat: 23.1734, long: 77.4802 },
+  { name: "Kolar Police Station", lat: 23.1678, long: 77.4187 },
+  { name: "Jahangirabad Police Station", lat: 23.2635, long: 77.4273 },
+  { name: "Mangalwara Police Station", lat: 23.2721, long: 77.4224 },
+  { name: "Talaiya Police Station", lat: 23.2685, long: 77.4152 },
+  { name: "Ayodhya Nagar Police Station", lat: 23.2467, long: 77.4823 },
+  { name: "Bagh Sewania Police Station", lat: 23.2118, long: 77.4756 },
+  { name: "Khajuri Sadak Police Station", lat: 23.1245, long: 77.5712 },
+  { name: "Ratibad Police Station", lat: 23.1101, long: 77.3865 },
+  { name: "Berasia Police Station", lat: 23.6352, long: 77.4323 },
+];
+
+const categories = [
+  "COMMUNICATION_DEVICES",
+  "COMPUTER_AND_IT_EQUIPMENT",
+  "NETWORKING_EQUIPMENT",
+  "SURVEILLANCE_AND_TRACKING",
+  "VEHICLE_AND_ACCESSORIES",
+  "PROTECTIVE_GEAR",
+  "FIREARMS",
+  "FORENSIC",
+  "MEDICAL_FIRST_AID",
+  "OFFICE_SUPPLIES",
+];
+
 const madhyaPradeshGeoJSON: Feature<Geometry> = {
   type: "Feature",
   properties: {},
@@ -116,148 +141,102 @@ const madhyaPradeshGeoJSON: Feature<Geometry> = {
     type: "LineString",
   },
 };
-const policeStations = [
-  { name: "TT Nagar Police Station", lat: 23.23725, long: 77.39984 },
-  { name: "Kamla Nagar Police Station", lat: 23.21554, long: 77.39552 },
-  { name: "Shyamla Hills Police Station", lat: 23.2457, long: 77.4107 },
-  { name: "Habibganj Police Station", lat: 23.2295, long: 77.4381 },
-  { name: "Piplani Police Station", lat: 23.2289, long: 77.4718 },
-  { name: "Govindpura Police Station", lat: 23.2587, long: 77.4935 },
-  { name: "Ashoka Garden Police Station", lat: 23.2494, long: 77.4631 },
-  { name: "MP Nagar Police Station", lat: 23.2332, long: 77.4272 },
-  { name: "Bhopal Kotwali Police Station", lat: 23.2689, long: 77.4012 },
-  { name: "Hanumanganj Police Station", lat: 23.2812, long: 77.4135 },
-  { name: "Chhola Mandir Police Station", lat: 23.2856, long: 77.4343 },
-  { name: "Shahpura Police Station", lat: 23.1945, long: 77.4423 },
-  { name: "Misrod Police Station", lat: 23.1734, long: 77.4802 },
-  { name: "Kolar Police Station", lat: 23.1678, long: 77.4187 },
-  { name: "Jahangirabad Police Station", lat: 23.2635, long: 77.4273 },
-  { name: "Mangalwara Police Station", lat: 23.2721, long: 77.4224 },
-  { name: "Talaiya Police Station", lat: 23.2685, long: 77.4152 },
-  { name: "Ayodhya Nagar Police Station", lat: 23.2467, long: 77.4823 },
-  { name: "Bagh Sewania Police Station", lat: 23.2118, long: 77.4756 },
-  { name: "Khajuri Sadak Police Station", lat: 23.1245, long: 77.5712 },
-  { name: "Ratibad Police Station", lat: 23.1101, long: 77.3865 },
-  { name: "Berasia Police Station", lat: 23.6352, long: 77.4323 },
-];
 
 const MapComponent: React.FC = () => {
   const mapRef = useRef<L.Map | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].name);
-  console.log(categories[0].name);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+  const [stationData, setStationData] = useState<
+    { location: string; quantity: number }[]
+  >([]);
 
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const response = await fetch("/api/mapLoc", {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-  //       const data = await response.json();
-  //       if (data.length > 0) {
-  //         data.forEach((result: any) => {
-  //           categories.forEach((category) => {
-  //             if (result.location.includes(category.name.replace(/_/g, " "))) {
-  //               category.quantity = result.quantity;
-  //             }
-  //           });
-  //         });
-
-  //         console.log(categories);
-
-  //         console.log(categories);
-  //         // setCategories(updatedCategories);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching categories:", error);
-  //     }
-  //   };
-
-  //   fetchCategories();
-  // }, []);
-
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     try {
-  //       const response = await fetch("/api/mapLoc", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         // body: categories,
-  //       });
-  //       const data = await response.json();
-  //       // setCategories(data);
-  //       categories = data;
-  //       console.log(categories);
-  //       if (data.length > 0) {
-  //         setSelectedCategory(data.name);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching categories:", error);
-  //     }
-  //   };
-
-  //   fetchCategories();
-  // }, [selectedCategory]);
   useEffect(() => {
+    initializeMap();
+    fetchStationData();
+  }, [selectedCategory]);
+
+  const initializeMap = () => {
     if (!mapRef.current) {
-      const map = L.map("map").setView([22.973423, 78.656891], 7);
+      const map = L.map("map").setView([23.23725, 77.39984], 10);
       mapRef.current = map;
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap contributors",
       }).addTo(map);
-
-      policeStations.forEach((station) => {
-        const marker = L.marker([station.lat, station.long])
-          .addTo(map)
-          .on("click", () => {
-            window.location.href = `/station/${station.name}`;
-          });
-
-        const categoryData = categories.find(
-          (cat) => cat.name === selectedCategory,
-        );
-        const quantity = categoryData ? categoryData.quantity : 0;
-
-        const circleColor = quantity > 10 ? "blue" : "red";
-
-        const circle = L.circle([station.lat, station.long], {
-          color: circleColor,
-          fillColor: circleColor,
-          fillOpacity: 0.5,
-          radius: 200,
-        }).addTo(map);
-
-        const popup = L.popup({
-          autoClose: false,
-          closeOnClick: false,
-        }).setContent(`${station.name}`);
-
-        marker.bindPopup(popup).openPopup();
-      });
-
-      L.geoJSON(madhyaPradeshGeoJSON, {
-        style: {
-          color: "blue",
-          weight: 2,
-          fillColor: "cyan",
-          fillOpacity: 0.2,
-        },
-      }).addTo(map);
     }
+  };
 
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
+  const fetchStationData = async () => {
+    try {
+      const response = await fetch(
+        `/api/items-by-category?category=${selectedCategory}`,
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
       }
-    };
-  }, [selectedCategory]);
+
+      const data = await response.json();
+      const aggregatedData = aggregateData(data.data); // Aggregate the quantity
+      setStationData(aggregatedData);
+      updateMapMarkers(aggregatedData);
+    } catch (error) {
+      console.error("Error fetching station data:", error);
+    }
+  };
+
+  // Aggregate quantities for locations
+  const aggregateData = (
+    data: { quantity: number; location: string }[],
+  ): { location: string; quantity: number }[] => {
+    const aggregated: Record<string, number> = {};
+    data.forEach((item) => {
+      aggregated[item.location] =
+        (aggregated[item.location] || 0) + item.quantity;
+    });
+
+    return Object.entries(aggregated).map(([location, quantity]) => ({
+      location,
+      quantity,
+    }));
+  };
+
+  const updateMapMarkers = (data: { location: string; quantity: number }[]) => {
+    if (!mapRef.current) return;
+
+    // Clear existing markers
+    mapRef.current.eachLayer((layer) => {
+      if (layer instanceof L.Marker || layer instanceof L.Circle) {
+        mapRef.current!.removeLayer(layer);
+      }
+    });
+
+    data.forEach((item) => {
+      const station = policeStations.find((ps) => ps.name === item.location);
+      if (!station) return;
+
+      const circleColor = item.quantity > 10 ? "blue" : "red";
+
+      const marker = L.marker([station.lat, station.long])
+        .addTo(mapRef.current!)
+        .on("click", () => {
+          alert(`${item.location} - Quantity: ${item.quantity}`);
+        });
+
+      const popup = L.popup({
+        autoClose: false,
+        closeOnClick: false,
+      }).setContent(`<b>${item.location}</b><br>Quantity: ${item.quantity}`);
+
+      marker.bindPopup(popup).openPopup();
+
+      L.circle([station.lat, station.long], {
+        color: circleColor,
+        fillColor: circleColor,
+        fillOpacity: 0.5,
+        radius: 200,
+      }).addTo(mapRef.current!);
+    });
+  };
 
   const handleSearch = () => {
     if (!mapRef.current) return;
@@ -275,29 +254,31 @@ const MapComponent: React.FC = () => {
 
   return (
     <div className="relative">
+
       <div className="mx-auto mb-6 max-w-4xl rounded-lg border border-stroke bg-white px-6 py-4 shadow-lg dark:border-strokedark dark:bg-boxdark">
         <div className="mb-4 flex-col flex items-center gap-6.5 md:gap-0 md:flex-row">
+
           <select
-            className="mr-4 rounded-lg border border-stroke bg-white px-4 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="mr-4 rounded-lg border px-4 py-2 text-sm focus:outline-none"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
           >
             {categories.map((category) => (
-              <option key={category.name} value={category.name}>
-                {category.name}
+              <option key={category} value={category}>
+                {category}
               </option>
             ))}
           </select>
           <input
-            className="w-3/4 rounded-lg border border-stroke bg-white px-4 py-2 text-sm placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-strokedark dark:bg-boxdark dark:text-white dark:placeholder-gray-500"
+            className="w-3/4 rounded-lg border px-4 py-2 text-sm placeholder-gray-400 focus:outline-none"
             type="text"
-            placeholder="Search for a police station..."
+            placeholder="Search for a station..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button
             onClick={handleSearch}
-            className="ml-4 rounded-lg bg-blue-600 px-6 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600"
+            className="ml-4 rounded-lg bg-blue-600 px-6 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
           >
             Search
           </button>
@@ -306,10 +287,12 @@ const MapComponent: React.FC = () => {
 
       <div
         id="map"
+
         className="flex  w-full h-[calc(60vh-4rem)] items-center justify-center rounded-lg bg-gray-100 dark:bg-boxdark md:h-[calc(100vh-4rem)] md:w-full"
       >
         <p className="text-gray-500 dark:text-gray-300">Map loading...</p>
       </div>
+
     </div>
   );
 };
