@@ -240,7 +240,7 @@ const ViewInventoryIndividual = () => {
     }
   };
 
-  /* API call not mandatory
+
       try {
         const response = await fetch(
           process.env.URL + "/api/contract2/addContract2Url",
