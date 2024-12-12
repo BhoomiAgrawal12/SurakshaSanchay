@@ -1,6 +1,6 @@
 import React from "react";
-import CardElement from "@/app/forms/displaytransfer/toloc";
-
+import CardElement from "./toloc";
+import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 const sampleData = [
   { itemId: "001", type: "Laptop", category: "COMPUTER_AND_IT_EQUIPMENT", location: "TT Nagar Police Station" },
   { itemId: "002", type: "Pistol", category: "FIREARMS", location: "Kamla Nagar Police Station" },
@@ -8,8 +8,12 @@ const sampleData = [
 ];
 
 const App: React.FC = () => {
-  <h2 className="text-black dark:text-white ">Items to Transfer:</h2>  
-  return <CardElement data={sampleData} />;
+  
+  return (
+  <><Breadcrumb pageName="TRANSFER DETAILS" /> 
+    <CardElement data={sampleData} /> 
+    </>
+  )  
 };
 
 export default App;
