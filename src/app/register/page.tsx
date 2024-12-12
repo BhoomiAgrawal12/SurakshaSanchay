@@ -93,7 +93,7 @@ const Register = () => {
         > */}
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-1 gap-9 sm:grid-cols-2"
+          className="md:grid md:grid-cols-1 gap-9 flex flex-col"
         >
           {/* Name Field */}
           <div>

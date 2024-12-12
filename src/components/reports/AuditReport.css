@@ -130,7 +130,35 @@
     padding: 20px;
     font-family: "Roboto", sans-serif;
     background-color: #f4f6f9;
+    border-radius: 2rem;
   }
+  .dark .policy-compliance-review{
+    background-color:#34495e;
+  }
+  .dark .policy-compliance-review .header{
+    background-color: #2c3e50;
+    
+  }
+  .dark .policy-compliance-review .header h1{
+    color: white;
+  }
+  .dark .policy-compliance-review .report-table{
+    background-color: #2c3e50;
+    
+  }
+  .dark .policy-compliance-review .report-table h3{
+    color: white;
+  }
+  .dark .policy-compliance-review .report-table th{
+    background-color:#34495e;
+    color: white;
+    
+  }
+  .dark .policy-compliance-review .report-table tr td{
+    color: white;
+    border-bottom: #f4f4f4 0.1rem solid;
+  }
+  
   
   /* Header Section */
   .policy-compliance-review .header {
@@ -210,6 +238,28 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
+  .dark .policy-compliance-review .chart{
+    background-color:#2c3e50;
+
+  }
+  .dark .policy-compliance-review .chart h3{
+    color: white;
+  }
+  .dark .policy-compliance-review .findings-section h2{
+    color: white;
+  }
+  .dark .policy-compliance-review .findings-section .finding-card h3{
+    color: white;
+  }
+  .dark .policy-compliance-review .findings-section .finding-card p{
+    color: #fff;
+  }
+    .dark .policy-compliance-review .findings-section .finding-card p strong {
+      color: #fff;
+    }
+    .dark .policy-compliance-review .finding-card{
+      background-color: #2c3e50;
+    }
   
   .policy-compliance-review .chart h3 {
     font-size: 1.5rem;

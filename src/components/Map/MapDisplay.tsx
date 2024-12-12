@@ -254,8 +254,10 @@ const MapComponent: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="mx-auto mb-6 max-w-4xl rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-lg">
-        <div className="mb-4 flex items-center">
+
+      <div className="mx-auto mb-6 max-w-4xl rounded-lg border border-stroke bg-white px-6 py-4 shadow-lg dark:border-strokedark dark:bg-boxdark">
+        <div className="mb-4 flex-col flex items-center gap-6.5 md:gap-0 md:flex-row">
+
           <select
             className="mr-4 rounded-lg border px-4 py-2 text-sm focus:outline-none"
             value={selectedCategory}
@@ -285,8 +287,12 @@ const MapComponent: React.FC = () => {
 
       <div
         id="map"
-        className="flex h-[calc(100vh-4rem)] w-full rounded-lg bg-gray-100"
-      ></div>
+
+        className="flex  w-full h-[calc(60vh-4rem)] items-center justify-center rounded-lg bg-gray-100 dark:bg-boxdark md:h-[calc(100vh-4rem)] md:w-full"
+      >
+        <p className="text-gray-500 dark:text-gray-300">Map loading...</p>
+      </div>
+
     </div>
   );
 };

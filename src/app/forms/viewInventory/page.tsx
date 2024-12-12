@@ -255,7 +255,7 @@ const ViewInventory = () => {
         <h1 className="text-2xl text-white">Filter</h1>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="flex flex-row gap-10">
+            <div className="flex flex-col gap-10 md:flex-row">
               <FormField
                 control={form.control}
                 name="category"
