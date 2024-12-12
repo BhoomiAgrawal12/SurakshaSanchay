@@ -15,7 +15,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ title, value }) => {
         textAlign: "center",
         minWidth: 200,
         "&.dark": {
-          backgroundColor: "primary.main",
+          backgroundColor: "black",
           color: "white",
         },
       }}

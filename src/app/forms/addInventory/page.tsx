@@ -1233,7 +1233,7 @@ const AddInventory = () => {
       <div className="flex flex-col gap-9 overflow-x-hidden ">
         <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <form onSubmit={handleInventorySubmit}>
-            <div className="grid grid-cols-1 gap-6 p-6.5 sm:grid-cols-3">
+            <div className="md:grid md:grid-cols-1 flex flex-col gap-6 p-6.5 sm:grid-cols-3">
               {/* Item ID */}
               <div>
                 <label className="mb-3 block text-sm font-medium text-black dark:text-white">

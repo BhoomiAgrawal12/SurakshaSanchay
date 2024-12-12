@@ -314,7 +314,7 @@ const ViewInventory = () => {
         <h1 className="text-2xl text-white">Filter</h1>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="flex flex-row gap-10">
+            <div className="flex flex-col gap-10 md:flex-row">
               <FormField
                 control={form.control}
                 name="location"
@@ -545,57 +545,57 @@ const ViewInventory = () => {
             <table className="w-full table-auto">
               <thead>
                 <tr className="bg-gray-2 text-left dark:bg-meta-4">
-                  <th className="min-w-[220px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
+                  <th className="md:min-w-0 min-w-[220px] px-4 py-4 font-medium text-black dark:text-white xl:pl-11">
                     Item Id
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Category
                   </th>
-                  <th className="min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[150px] px-4 py-4 font-medium text-black dark:text-white">
                     Type
                   </th>
-                  {/* <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">Issued To</th> */}
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  {/* <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">Issued To</th> */}
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Quantity
                   </th>
-                  <th className="min-w-[160px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[160px] px-4 py-4 font-medium text-black dark:text-white">
                     Location
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Condition
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Status
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Acquisition Date
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Expiry Date
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Price
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Supplier
                   </th>
-                  {/* <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">Assigned to</th> */}
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  {/* <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">Assigned to</th> */}
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Return Date
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Last Inspection Date
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Maintenance Schedule
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Maintenance Charge
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     Issued To
                   </th>
-                  <th className="min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
+                  <th className="md:min-w-0 min-w-[120px] px-4 py-4 font-medium text-black dark:text-white">
                     User Id
                   </th>
                   <th className="px-4 py-4 font-medium text-black dark:text-white">

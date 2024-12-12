@@ -429,7 +429,6 @@ const menuGroups = [
         children: [
           { label: "Generate QR Code", route: "/qrGenerate" },
           { label: "Scan QR Code", route: "/scanQR" },
-          { label: "Asset Tracking", route: "/forms/assetList" },
         ],
       },
       {
@@ -524,7 +523,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const tourSteps: Step[] = [
     {
       target: "body",
-      content: "Welcome to SurakshaSanchany!",
+      content: "Welcome to SurakshaSanchay!",
       placement: "center",
     },
     

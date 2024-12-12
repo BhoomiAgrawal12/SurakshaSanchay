@@ -26,13 +26,13 @@ export default function Home() {
       <div className="relative z-10 flex h-full flex-col items-center justify-start space-y-6 pt-[30px] text-center">
         <h1
           className={cn(
-            "text-6xl font-semibold text-white drop-shadow-md",
+            "md:text-6xl text-2xl font-semibold text-white drop-shadow-md",
             font.className,
           )}
         >
           SurakshaSanchay
         </h1>
-        <p className="text-lg text-white drop-shadow-md">
+        <p className="md:text-lg text-l text-white drop-shadow-md">
           A Centrazlized Hardware Inventory Management System
         </p>
         <div className="bolder text-white">
